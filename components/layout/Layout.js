@@ -7,7 +7,7 @@ const Layout = (props) => {
       <main
         style={{
           margin: '3rem auto',
-          width: '40%',
+          width: '50%',
         }}
       >
         {props.children}

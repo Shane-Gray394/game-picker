@@ -3,14 +3,23 @@ import Link from 'next/link';
 
 const NavBar = () => {
   return (
-    <Flex as="header" w="100%" backgroundColor="black" pt="10" pb="10">
-      <Box pl="6">
-        <Heading color="white">Family Game Picker</Heading>
+    <Flex
+      borderWidth={1}
+      borderRadius={3}
+      boxShadow="md"
+      w="100%"
+      pt="10"
+      pb="10"
+    >
+      <Box pl="20">
+        <Heading color="black">Family Game Picker</Heading>
       </Box>
       <Spacer />
-      <Box pr="6">
+      <Box pr="20">
         <Link passHref href="/">
-          <Button>Home</Button>
+          <Button color="black" variant="link">
+            Home
+          </Button>
         </Link>
       </Box>
     </Flex>

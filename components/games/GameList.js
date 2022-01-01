@@ -34,7 +34,7 @@ const GameList = (props) => {
           )}
         </Box>
         <Link passHref href="/add-game">
-          <Button colorScheme="linkedin" width="full">
+          <Button colorScheme="facebook" width="full">
             Add New Game
           </Button>
         </Link>
