@@ -2,6 +2,8 @@ import GameList from '../components/games/GameList';
 import GameRandomizer from '../components/games/GameRandomizer';
 import { connectToDatabase } from '../util/mongodb';
 import { Flex } from '@chakra-ui/react';
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
 
 const HomePage = (props) => {
   return (
