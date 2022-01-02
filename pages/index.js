@@ -9,11 +9,11 @@ import Head from 'next/head';
 
 export const HomePage = (props) => {
   return (
-    <div>
+    <div style={{ backgroundColor: 'lightgray' }}>
       <Head>
         <title>Family Game Picker</title>
       </Head>
-      <Box height="100vh" className="scroll-snap-child">
+      <Box height="100vh" className="scrollSnapChild">
         <NavBar />
         <Box className="main">
           <Flex justify="center">
@@ -32,7 +32,7 @@ export const HomePage = (props) => {
         </Box>
       </Box>
       <Box height="100vh" className="scroll-snap-child">
-        <Box className="main" pt="250">
+        <Box className="main" pt="100">
           <Wishlist wishlist={props.wishlist} />
         </Box>
       </Box>

@@ -14,7 +14,7 @@ export const GameRandomizer = (props) => {
 
   return (
     <Box
-      backgroundColor="lightgray"
+      backgroundColor="white"
       p={8}
       borderWidth={1}
       borderRadius={8}

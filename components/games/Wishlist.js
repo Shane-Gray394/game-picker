@@ -10,65 +10,151 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  useAccordion,
-  useAccordionItem,
+  Input,
 } from '@chakra-ui/react';
-// import { useState } from 'react';
+import classes from './Wishlist.module.css';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export const Wishlist = (props) => {
-  // const [wishlist, setWishlist] = useState('');
+  const [userWishlist, setUserWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(props.wishlist);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  // const onFetch = () => {
-  //   setWishlist(props.wishlist);
-  //   console.log(wishlist);
-  // };
+  const addToWishlist = (game) => {
+    setUserWishlist([
+      ...userWishlist,
+      {
+        image: game.image,
+        description: game.description,
+      },
+    ]);
+  };
+
+  const removeFromWishlist = (game) => {
+    userWishlist.splice(game, 1);
+    setUserWishlist([...userWishlist]);
+  };
+
   return (
-    <Box
-      backgroundColor="lightgray"
-      p={8}
-      borderWidth={1}
-      borderRadius={8}
-      boxShadow="lg"
-      width="40%"
-    >
-      <Box textAlign="center" pb={5}>
-        <Heading>Wishlist</Heading>
+    <Flex justify="space-around">
+      <Box
+        p={8}
+        borderWidth={1}
+        borderRadius={8}
+        boxShadow="md"
+        width="40%"
+        backgroundColor="white"
+      >
+        <Box textAlign="center" pb={5}>
+          <Heading>Search for a Game</Heading>
+        </Box>
+        <Input
+          variant="unstyled"
+          pb="4"
+          placeholder="Search by title"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+        <Box>
+          {wishlist
+            .filter((game) => {
+              // if (searchTerm === '') {
+              //   return game;
+              // } else
+              if (
+                `${game.title}`.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return game;
+              }
+            })
+            .map((game) => (
+              <Box key={game.id} className={classes.boxItem}>
+                <Flex direction="column">
+                  <Box alignSelf="center">
+                    <Image
+                      width="200px"
+                      height="100px"
+                      src={game.image}
+                      alt="game logo"
+                    />
+                  </Box>
+
+                  <Accordion allowToggle allowMultiple={false}>
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box flex="1" textAlign="left">
+                          <Text fontSize="x-large">Details</Text>
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <AccordionPanel>
+                        <Text>{game.description}</Text>
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                  <Box alignSelf="center">
+                    <Button variant="ghost" onClick={() => addToWishlist(game)}>
+                      Add to Wishlist
+                    </Button>
+                  </Box>
+                </Flex>
+              </Box>
+            ))}
+        </Box>
       </Box>
-      <Box textAlign="center">
-        {'' === 0 ? (
-          <Text fontSize="xl" pb={8}>
-            No added games
-          </Text>
+      <Box
+        backgroundColor="white"
+        p={8}
+        borderWidth={1}
+        borderRadius={8}
+        boxShadow="md"
+        width="40%"
+      >
+        <Box textAlign="center" pb={5}>
+          <Heading>Wishlist</Heading>
+        </Box>
+        {userWishlist.length === 0 ? (
+          <Box fontSize="x-large" textAlign="center">
+            <Text>No Games Added</Text>
+          </Box>
         ) : (
-          <Box></Box>
+          userWishlist.map((game) => (
+            <Box key={game.id} className={classes.boxItem}>
+              <Flex direction="column">
+                <Box alignSelf="center">
+                  <Image
+                    width="200px"
+                    height="100px"
+                    src={game.image}
+                    alt="game"
+                  />
+                </Box>
+                <Accordion allowToggle>
+                  <AccordionItem>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        <Text fontSize="x-large">Details</Text>
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    <AccordionPanel>
+                      <Text>{game.description}</Text>
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+                <Box alignSelf="center">
+                  <Button
+                    variant="ghost"
+                    onClick={() => removeFromWishlist(game)}
+                  >
+                    Remove
+                  </Button>
+                </Box>
+              </Flex>
+            </Box>
+          ))
         )}
       </Box>
-      <Text>{props.wishlist[0].title}</Text>
-      <Image
-        width="200px"
-        height="100px"
-        src={
-          'https://www.logolynx.com/images/logolynx/ff/ffe58a33af337f340634f7e5c9e5d7eb.png'
-        }
-        alt="game"
-      />
-      <Accordion allowToggle>
-        <AccordionItem>
-          <AccordionButton>
-            <Box flex="1" textAlign="left">
-              <Text fontSize="x-large">Add To Wishlist</Text>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
-            <Text width="50%">{props.wishlist[0].description}</Text>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-      <Button colorScheme="facebook" width="full">
-        Add New Game
-      </Button>
-    </Box>
+    </Flex>
   );
 };

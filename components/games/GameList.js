@@ -1,14 +1,5 @@
 import { GameItem } from './GameItem';
-import {
-  Flex,
-  Button,
-  Box,
-  Heading,
-  Text,
-  SimpleGrid,
-  Container,
-} from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Heading, Text, SimpleGrid } from '@chakra-ui/react';
 
 export const GameList = (props) => {
   return (
@@ -17,7 +8,7 @@ export const GameList = (props) => {
       borderWidth={1}
       borderRadius={8}
       boxShadow="lg"
-      backgroundColor="lightgray"
+      backgroundColor="white"
       overflow="scroll"
       className="scroll"
     >

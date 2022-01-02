@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['www.logolynx.com'],
+    domains: ['www.logolynx.com', 'upload.wikimedia.org'],
   },
 };

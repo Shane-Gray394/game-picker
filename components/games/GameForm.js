@@ -34,10 +34,10 @@ export const GameForm = (props) => {
   return (
     <Accordion
       p={8}
-      backgroundColor="lightgray"
+      backgroundColor="white"
       borderWidth={1}
       borderRadius={8}
-      boxShadow="lg"
+      boxShadow="md"
       width="80%"
       allowToggle
     >

@@ -5,6 +5,7 @@ export const NavBar = () => {
   return (
     <Flex
       className="scroll-snap-child"
+      backgroundColor="white"
       borderWidth="full"
       borderRadius={3}
       boxShadow="md"
