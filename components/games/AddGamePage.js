@@ -1,7 +1,7 @@
-import GameForm from '../../components/games/GameForm';
+import { GameForm } from '..';
 import { useRouter } from 'next/router';
 
-const AddGamePage = () => {
+export const AddGamePage = () => {
   const router = useRouter();
 
   const addGameHandler = async (enteredGameData) => {
@@ -19,5 +19,3 @@ const AddGamePage = () => {
 
   return <GameForm onAddgame={addGameHandler} />;
 };
-
-export default AddGamePage;

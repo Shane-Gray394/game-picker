@@ -1,10 +1,11 @@
 import { Button, Flex, Spacer, Box, Heading } from '@chakra-ui/react';
 import Link from 'next/link';
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <Flex
-      borderWidth={1}
+      className="scroll-snap-child"
+      borderWidth="full"
       borderRadius={3}
       boxShadow="md"
       w="100%"
@@ -17,7 +18,7 @@ const NavBar = () => {
       <Spacer />
       <Box pr="20">
         <Link passHref href="/">
-          <Button color="black" variant="link">
+          <Button color="black" variant="ghost">
             Home
           </Button>
         </Link>
@@ -25,5 +26,3 @@ const NavBar = () => {
     </Flex>
   );
 };
-
-export default NavBar;

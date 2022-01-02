@@ -2,7 +2,7 @@ import { Flex, Stack, Button, Box, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-const GameItem = (props) => {
+export const GameItem = (props) => {
   const [deleting, setDeleting] = useState(false);
   const router = useRouter();
 
@@ -21,10 +21,10 @@ const GameItem = (props) => {
   };
 
   return (
-    <Flex mt={2} mb={2}>
-      <Box p={4} borderWidth={1} borderRadius={8} w="100%">
+    <Flex>
+      <Box p={4} w="100%">
         <Stack spacing={3}>
-          <Text fontSize="3xl">{props.title}</Text>
+          <Text fontSize="xl">{props.title}</Text>
           <Text fontSize="lg">{props.description}</Text>
           <Button
             colorScheme="whatsapp"
@@ -38,5 +38,3 @@ const GameItem = (props) => {
     </Flex>
   );
 };
-
-export default GameItem;

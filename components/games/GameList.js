@@ -1,46 +1,45 @@
-import GameItem from './GameItem';
-import { Flex, Button, Box, Heading, Text } from '@chakra-ui/react';
+import { GameItem } from './GameItem';
+import {
+  Flex,
+  Button,
+  Box,
+  Heading,
+  Text,
+  SimpleGrid,
+  Container,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 
-const GameList = (props) => {
+export const GameList = (props) => {
   return (
-    <Flex width="full">
-      <Box
-        p={8}
-        maxWidth="500px"
-        borderWidth={1}
-        borderRadius={8}
-        boxShadow="lg"
-      >
-        <Box textAlign="center" pb={5}>
-          <Heading>Games Library</Heading>
-        </Box>
-        <Box textAlign="center">
-          {props.games.length === 0 ? (
-            <Text fontSize="xl" pb={8}>
-              No added games
-            </Text>
-          ) : (
-            <Box>
-              {props.games.map((game, i) => (
-                <GameItem
-                  key={i}
-                  id={game._id}
-                  title={game.title}
-                  description={game.description}
-                />
-              ))}
-            </Box>
-          )}
-        </Box>
-        <Link passHref href="/add-game">
-          <Button colorScheme="facebook" width="full">
-            Add New Game
-          </Button>
-        </Link>
+    <Box
+      p={8}
+      borderWidth={1}
+      borderRadius={8}
+      boxShadow="lg"
+      backgroundColor="lightgray"
+      overflow="scroll"
+      className="scroll"
+    >
+      <Box textAlign="center" pb={5}>
+        <Heading>Games Library</Heading>
       </Box>
-    </Flex>
+      {props.games.length === 0 ? (
+        <Text fontSize="xl" pb={8}>
+          No added games
+        </Text>
+      ) : (
+        <SimpleGrid spacing="4" textAlign="center" columns={{ lg: 3, sm: 1 }}>
+          {props.games.map((game, i) => (
+            <GameItem
+              key={i}
+              id={game._id}
+              title={game.title}
+              description={game.description}
+            />
+          ))}
+        </SimpleGrid>
+      )}
+    </Box>
   );
 };
-
-export default GameList;
