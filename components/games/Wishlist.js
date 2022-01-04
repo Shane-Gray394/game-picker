@@ -25,7 +25,7 @@ export const Wishlist = (props) => {
     setUserWishlist([
       ...userWishlist,
       {
-        image: game.image,
+        title: game.title,
         description: game.description,
       },
     ]);
@@ -37,14 +37,16 @@ export const Wishlist = (props) => {
   };
 
   return (
-    <Flex justify="space-around">
+    <Flex justify="space-around" id="wishlist">
       <Box
         p={8}
         borderWidth={1}
         borderRadius={8}
         boxShadow="md"
+        height="77vh"
         width="40%"
-        backgroundColor="white"
+        backgroundColor="#faf9f9"
+        className="scroll"
       >
         <Box textAlign="center" pb={5}>
           <Heading>Search for a Game</Heading>
@@ -70,20 +72,11 @@ export const Wishlist = (props) => {
             .map((game) => (
               <Box key={game.id} className={classes.boxItem}>
                 <Flex direction="column">
-                  <Box alignSelf="center">
-                    <Image
-                      width="200px"
-                      height="100px"
-                      src={game.image}
-                      alt="game logo"
-                    />
-                  </Box>
-
-                  <Accordion allowToggle allowMultiple={false}>
+                  <Accordion allowToggle>
                     <AccordionItem>
                       <AccordionButton>
                         <Box flex="1" textAlign="left">
-                          <Text fontSize="x-large">Details</Text>
+                          <Text fontSize="xx-large">{game.title}</Text>
                         </Box>
                         <AccordionIcon />
                       </AccordionButton>
@@ -103,12 +96,14 @@ export const Wishlist = (props) => {
         </Box>
       </Box>
       <Box
-        backgroundColor="white"
+        className="scroll"
+        backgroundColor="#faf9f9"
         p={8}
         borderWidth={1}
         borderRadius={8}
         boxShadow="md"
         width="40%"
+        height="77vh"
       >
         <Box textAlign="center" pb={5}>
           <Heading>Wishlist</Heading>
@@ -121,19 +116,11 @@ export const Wishlist = (props) => {
           userWishlist.map((game) => (
             <Box key={game.id} className={classes.boxItem}>
               <Flex direction="column">
-                <Box alignSelf="center">
-                  <Image
-                    width="200px"
-                    height="100px"
-                    src={game.image}
-                    alt="game"
-                  />
-                </Box>
                 <Accordion allowToggle>
                   <AccordionItem>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
-                        <Text fontSize="x-large">Details</Text>
+                        <Text fontSize="xx-large">{game.title}</Text>
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>

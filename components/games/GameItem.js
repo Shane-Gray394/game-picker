@@ -27,7 +27,7 @@ export const GameItem = (props) => {
           <Text fontSize="xl">{props.title}</Text>
           <Text fontSize="lg">{props.description}</Text>
           <Button
-            colorScheme="whatsapp"
+            colorScheme="linkedin"
             type="button"
             onClick={() => onDeleteGame(props.id)}
           >

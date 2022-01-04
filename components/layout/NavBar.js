@@ -1,11 +1,12 @@
-import { Button, Flex, Spacer, Box, Heading } from '@chakra-ui/react';
+import { Flex, ButtonGroup, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
 export const NavBar = () => {
   return (
     <Flex
+      justify="center"
       className="scroll-snap-child"
-      backgroundColor="white"
+      backgroundColor="#faf9f9"
       borderWidth="full"
       borderRadius={3}
       boxShadow="md"
@@ -13,17 +14,14 @@ export const NavBar = () => {
       pt="10"
       pb="10"
     >
-      <Box pl="20">
-        <Heading color="black">Family Game Picker</Heading>
-      </Box>
-      <Spacer />
-      <Box pr="20">
-        <Link passHref href="/">
-          <Button color="black" variant="ghost">
-            Home
-          </Button>
+      <ButtonGroup spacing={8}>
+        <Link passHref href="#home">
+          <Button variant="link">Home</Button>
         </Link>
-      </Box>
+        <Link passHref href="#wishlist">
+          <Button variant="link">Wishlist</Button>
+        </Link>
+      </ButtonGroup>
     </Flex>
   );
 };

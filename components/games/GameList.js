@@ -8,7 +8,8 @@ export const GameList = (props) => {
       borderWidth={1}
       borderRadius={8}
       boxShadow="lg"
-      backgroundColor="white"
+      backgroundColor="#faf9f9"
+      height="70vh"
       overflow="scroll"
       className="scroll"
     >

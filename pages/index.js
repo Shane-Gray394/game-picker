@@ -4,18 +4,24 @@ import { Wishlist } from '@/components/games/Wishlist';
 import { NavBar } from '@/components/layout/NavBar';
 import { AddGamePage } from '@/components/games/AddGamePage';
 import { connectToDatabase } from '../util/mongodb';
-import { Box, Flex, Spacer, Container, SimpleGrid } from '@chakra-ui/react';
+import { Box, Flex, SimpleGrid, Text, Button } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export const HomePage = (props) => {
   return (
-    <div style={{ backgroundColor: 'lightgray' }}>
+    <div style={{ backgroundColor: '#4895ef' }}>
       <Head>
         <title>Family Game Picker</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dosis&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <Box height="100vh" className="scrollSnapChild">
         <NavBar />
-        <Box className="main">
+        <Box id="main" className="main">
           <Flex justify="center">
             <SimpleGrid columns={2} spacing={200}>
               <Box>
@@ -29,9 +35,12 @@ export const HomePage = (props) => {
               </Box>
             </SimpleGrid>
           </Flex>
+          <Box textAlign="center" pt={5}>
+            <ChevronDownIcon w={20} h={20} />
+          </Box>
         </Box>
       </Box>
-      <Box height="100vh" className="scroll-snap-child">
+      <Box height="100vh" className="scrollSnapChild">
         <Box className="main" pt="100">
           <Wishlist wishlist={props.wishlist} />
         </Box>
