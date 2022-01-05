@@ -7,7 +7,7 @@ import {
   FormControl,
   FormLabel,
   Box,
-  Heading,
+  Text,
   Flex,
 } from '@chakra-ui/react';
 
@@ -46,71 +46,80 @@ const AddToWishList = () => {
     addGameHandler(gameData);
   };
   return (
-    <Flex justify="center">
-      <Box
-        className="scroll"
-        backgroundColor="white"
-        p={8}
-        mt={20}
-        borderWidth={1}
-        borderRadius={8}
-        boxShadow="md"
-        width="40%"
-        height="65vh"
-      >
-        <Box>
-          <Heading>Add To Wishlist Database</Heading>
+    <Box backgroundColor="#4895ef" height="100vh">
+      <Flex justify="center">
+        <Box
+          className="scroll"
+          backgroundColor="#faf9f9"
+          p={8}
+          mt={20}
+          borderWidth={1}
+          borderRadius={8}
+          boxShadow="md"
+          width="40%"
+          height="65vh"
+        >
+          <Box>
+            <Text fontSize="4xl" fontWeight="bold">
+              Add To Wishlist Database
+            </Text>
+          </Box>
+          <Box my={4} textAlign="left">
+            <form onSubmit={submitHandler} align="center">
+              <Stack spacing={4}>
+                <FormControl isRequired>
+                  <FormLabel>Title</FormLabel>
+                  <Input
+                    placeholder="Title..."
+                    required
+                    type="text"
+                    ref={titleInputRef}
+                    id="title"
+                  />
+                </FormControl>
+                <FormControl isRequired>
+                  <FormLabel>Image</FormLabel>
+                  <Input
+                    placeholder="Image..."
+                    required
+                    type="text"
+                    ref={imageInputRef}
+                    id="image"
+                  />
+                </FormControl>
+                <FormControl isRequired>
+                  <FormLabel>Company</FormLabel>
+                  <Input
+                    placeholder="Company..."
+                    required
+                    type="text"
+                    ref={companyInputRef}
+                    id="company"
+                  />
+                </FormControl>
+                <FormControl mt={6}>
+                  <FormLabel>Description</FormLabel>
+                  <Textarea
+                    placeholder="Description..."
+                    type="text"
+                    ref={descriptionInputRef}
+                    id="description"
+                  />
+                </FormControl>
+                <Button
+                  colorScheme="linkedin"
+                  width="full"
+                  mt={4}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Stack>
+            </form>
+          </Box>
         </Box>
-        <Box my={4} textAlign="left">
-          <form onSubmit={submitHandler} align="center">
-            <Stack spacing={4}>
-              <FormControl isRequired>
-                <FormLabel>Title</FormLabel>
-                <Input
-                  placeholder="Title..."
-                  required
-                  type="text"
-                  ref={titleInputRef}
-                  id="title"
-                />
-              </FormControl>
-              <FormControl isRequired>
-                <FormLabel>Image</FormLabel>
-                <Input
-                  placeholder="Image..."
-                  required
-                  type="text"
-                  ref={imageInputRef}
-                  id="image"
-                />
-              </FormControl>
-              <FormControl isRequired>
-                <FormLabel>Company</FormLabel>
-                <Input
-                  placeholder="Company..."
-                  required
-                  type="text"
-                  ref={companyInputRef}
-                  id="company"
-                />
-              </FormControl>
-              <FormControl mt={6}>
-                <FormLabel>Description</FormLabel>
-                <Textarea
-                  placeholder="Description..."
-                  type="text"
-                  ref={descriptionInputRef}
-                  id="description"
-                />
-              </FormControl>
-              <Button colorScheme="linkedin" width="full" mt={4} type="submit">
-                Submit
-              </Button>
-            </Stack>
-          </form>
-        </Box>
-      </Box>
-    </Flex>
+      </Flex>
+    </Box>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Flex, Button, Box, Heading, Text } from '@chakra-ui/react';
+import { Button, Box, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export const GameRandomizer = (props) => {
@@ -23,7 +23,9 @@ export const GameRandomizer = (props) => {
       mt={10}
     >
       <Box textAlign="center" pb={5}>
-        <Heading>Randomizer</Heading>
+        <Text fontSize="4xl" fontWeight="bold">
+          Randomizer
+        </Text>
         <Button
           colorScheme="linkedin"
           onClick={handleRandom}

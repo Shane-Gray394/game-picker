@@ -14,7 +14,9 @@ export const GameList = (props) => {
       className="scroll"
     >
       <Box textAlign="center" pb={5}>
-        <Heading>Games Library</Heading>
+        <Text fontSize="4xl" fontWeight="bold">
+          Games Library
+        </Text>
       </Box>
       {props.games.length === 0 ? (
         <Text fontSize="xl" pb={8}>

@@ -67,6 +67,7 @@ legend {
   border: 0;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  font-family: 'Fira Sans', sans-serif;
 }
 /* remember to define focus styles! */
 :focus {

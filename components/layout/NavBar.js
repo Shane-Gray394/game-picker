@@ -1,7 +1,10 @@
-import { Flex, ButtonGroup, Button } from '@chakra-ui/react';
+import { Flex, ButtonGroup, Button, Spacer } from '@chakra-ui/react';
 import Link from 'next/link';
+import cookie from 'js-cookie';
+import { useRouter } from 'next/router';
 
-export const NavBar = () => {
+export const NavBar = (props) => {
+  const router = useRouter();
   return (
     <Flex
       justify="center"
@@ -14,6 +17,7 @@ export const NavBar = () => {
       pt="10"
       pb="10"
     >
+      <Spacer />
       <ButtonGroup spacing={8}>
         <Link passHref href="#home">
           <Button variant="link">Home</Button>
@@ -22,6 +26,29 @@ export const NavBar = () => {
           <Button variant="link">Wishlist</Button>
         </Link>
       </ButtonGroup>
+      <Spacer />
+      {props.logged && (
+        <Button
+          pr={10}
+          variant="link"
+          onClick={() => {
+            cookie.remove('token');
+          }}
+        >
+          Logout
+        </Button>
+      )}
+      {!props.logged && (
+        <Button
+          pr={10}
+          variant="link"
+          onClick={() => {
+            router.push('/');
+          }}
+        >
+          Login
+        </Button>
+      )}
     </Flex>
   );
 };

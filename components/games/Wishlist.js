@@ -49,7 +49,9 @@ export const Wishlist = (props) => {
         className="scroll"
       >
         <Box textAlign="center" pb={5}>
-          <Heading>Search for a Game</Heading>
+          <Text fontSize="4xl" fontWeight="bold">
+            Search for a Game
+          </Text>
         </Box>
         <Input
           variant="unstyled"
@@ -106,7 +108,9 @@ export const Wishlist = (props) => {
         height="77vh"
       >
         <Box textAlign="center" pb={5}>
-          <Heading>Wishlist</Heading>
+          <Text fontSize="4xl" fontWeight="bold">
+            Wishlist
+          </Text>
         </Box>
         {userWishlist.length === 0 ? (
           <Box fontSize="x-large" textAlign="center">

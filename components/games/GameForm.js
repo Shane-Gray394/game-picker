@@ -7,12 +7,12 @@ import {
   FormControl,
   FormLabel,
   Box,
-  Heading,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Text,
 } from '@chakra-ui/react';
 
 export const GameForm = (props) => {
@@ -44,7 +44,9 @@ export const GameForm = (props) => {
       <AccordionItem>
         <AccordionButton id={props.id}>
           <Box flex="1" textAlign="left">
-            <Heading>Add New Game</Heading>
+            <Text fontSize="4xl" fontWeight="bold">
+              Add New Game
+            </Text>
           </Box>
           <AccordionIcon />
         </AccordionButton>
